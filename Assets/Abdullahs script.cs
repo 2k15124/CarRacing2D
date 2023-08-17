@@ -7,7 +7,7 @@ public class Abdullahsscript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Merge testing again");
+        Debug.Log("Merge testing (But changed alot)");
     }
 
     // Update is called once per frame
