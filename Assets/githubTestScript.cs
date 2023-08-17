@@ -9,7 +9,7 @@ public class githubTestScript : MonoBehaviour
     void Start()
     {
         Debug.Log("Version 1");
-        Debug.Log("Test bu Abd");
+        Debug.Log("Some good change");
     }
 
     // Update is called once per frame
