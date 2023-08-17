@@ -10,6 +10,7 @@ public class githubTestScript : MonoBehaviour
     {
         Debug.Log("Version 1");
         Debug.Log("Some good change");
+        Debug.Log("Merge Testing");
     }
 
     // Update is called once per frame
