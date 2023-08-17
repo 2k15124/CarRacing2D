@@ -7,7 +7,7 @@ public class mainuzair : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.Log("Uzair Main");
     }
 
     // Update is called once per frame
