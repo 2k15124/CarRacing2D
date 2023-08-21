@@ -3,8 +3,11 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class trackMove : MonoBehaviour {
-    public float speed = 10f;
+    public float speed;
+   
     Vector2 offset;
+
+
 
     public Texture[] track;
     
@@ -24,7 +27,7 @@ public class trackMove : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        offset = new Vector2(0, Time.time * speed);
+        offset = new Vector2(0, Time.time * speed*GameManager.Gamespeed);
         GetComponent<Renderer>().material.mainTextureOffset = offset;
 	}
 }

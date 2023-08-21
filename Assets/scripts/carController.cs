@@ -5,10 +5,12 @@ public class carController : MonoBehaviour {
     public float carSpeed = 10f;
     private float minPos = -2.8f;
     private float maxPos = 2.8f;
+    
 
     Vector3 position;
- //  public uiManager ui;
+    public uiManager ui;
     public AudioManager am;
+    public GameManager Gamemg;
 
     Rigidbody2D rb;
     float middle;
@@ -22,6 +24,7 @@ public class carController : MonoBehaviour {
         #if (UNITY_ANDROID)
         {
             currentPlatformAndroid = true;
+            Debug.Log("Android selected");
         }
         #else
         {
@@ -32,6 +35,7 @@ public class carController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+   
         middle = Screen.width / 2;
         am.carSound.Play();
         position = transform.position;
@@ -50,15 +54,20 @@ public class carController : MonoBehaviour {
             {
                 TouchMove();   
             }
+            position = transform.position;
+
         }
         else
         {
+            Debug.Log("Trying to change speed");
+            // Debug.Log(Input.GetAxis("Horizontal"));
             position.x += Input.GetAxis("Horizontal") * carSpeed * Time.deltaTime;
+            
         }
 
-        position = transform.position;
-        position.x = Mathf.Clamp(position.x, minPos, maxPos);
-        transform.position = position;
+    position.x = Mathf.Clamp(position.x, minPos, maxPos);
+    transform.position = position;
+        
     }
 
     //called when there is a collision between two game objects
@@ -68,7 +77,8 @@ public class carController : MonoBehaviour {
             Destroy(gameObject);
             Time.timeScale = 0;
             am.carSound.Stop();
-         //   ui.GameOverActivated();
+            ui.GameOverActivated();
+            Gamemg.setGameover();
         }
     }
 
@@ -126,4 +136,6 @@ public class carController : MonoBehaviour {
     {
         rb.velocity = Vector2.zero;
     }
+
+
 }
